@@ -1,7 +1,11 @@
+import Banner from '../components/Banner'
+import Moto from '../components/Moto'
+
 export default function App() {
     return (
         <main>
-            <h1>Desenvolvendo...</h1>
+            <Banner />
+            <Moto />
         </main>
     )
 }

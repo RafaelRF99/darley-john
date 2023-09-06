@@ -5,6 +5,7 @@ export default {
         extend: {
             backgroundImage: {
                 background: "url('/background.png')",
+                backgroundVenda: "url('/venda.png')",
             },
         },
     },
