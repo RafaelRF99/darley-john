@@ -1,9 +1,7 @@
-import Banner from './components/Banner'
-
 export default function App() {
     return (
         <main>
-            <Banner />
+            <h1>Desenvolvendo...</h1>
         </main>
     )
 }
