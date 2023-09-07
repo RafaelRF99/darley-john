@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function MenuBar() {
     return (
         <menu className="bg-black/50 w-full h-14 flex items-center">
@@ -11,11 +13,11 @@ export default function MenuBar() {
                 </li>
                 <p className="select-none">|</p>
                 <li className="cursor-pointer text-white hover:text-yellow-200/80">
-                    Geral
+                    <Link to="/vender">Vender</Link>
                 </li>
                 <p className="select-none">|</p>
                 <li className="cursor-pointer text-white hover:text-yellow-200/80">
-                    Suporte
+                    <Link to="/suporte">Suporte</Link>
                 </li>
             </ul>
         </menu>

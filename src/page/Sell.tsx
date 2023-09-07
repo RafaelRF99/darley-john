@@ -1,7 +1,7 @@
 import { MotoModel } from '../model/MotoModel'
 
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 import { useMoto } from '../data/hooks/useMoto'
@@ -58,7 +58,7 @@ export default function Sell() {
          flex justify-center items-center flex-wrap-reverse py-10"
         >
             <img
-                className="w-96 rotate-90 max-sm:hidden"
+                className="w-96 rotate-90 max-sm:hidden hover:-rotate-90 mix-blend-multiply duration-200"
                 src="./venda.png"
                 alt=""
             />
@@ -161,12 +161,22 @@ export default function Sell() {
                         </span>
                     )}
                 </div>
-                <button
-                    className="bg-green-400 hover:bg-green-500 px-8 py-2 rounded-md text-white 
+                <div className="flex w-full justify-between">
+                    <Link to="/">
+                        <button
+                            type="button"
+                            className="bg-white hover:bg-gray-400/10 border-2 border-black rounded-md px-8 py-2 mt-5"
+                        >
+                            Voltar
+                        </button>
+                    </Link>
+                    <button
+                        className="bg-green-400 hover:bg-green-500 px-8 py-2 rounded-md text-white 
                 mt-5 "
-                >
-                    Enviar
-                </button>
+                    >
+                        Enviar
+                    </button>
+                </div>
             </div>
         </form>
     )
