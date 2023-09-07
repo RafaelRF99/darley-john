@@ -52,4 +52,28 @@ export class MotoModel {
     get img() {
         return this.#img
     }
+
+    toJSON() {
+        return {
+            marca: this.#marca,
+            model: this.#model,
+            color: this.#color,
+            km: this.#km,
+            documentation: this.#documentation,
+            licensing: this.#licensing,
+            img: this.#img,
+        }
+    }
+
+    static fromJSON(json: MotoModel) {
+        return new MotoModel(
+            json.marca,
+            json.model,
+            json.color,
+            json.km,
+            json.documentation,
+            json.licensing,
+            json.img,
+        )
+    }
 }
