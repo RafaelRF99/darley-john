@@ -1,9 +1,12 @@
 # Darley John
 
-## Iniciar
-
+## Instalar dependencias
 ```bash
 npm i
+```
+Iniciar projeto
+```bash
+npm run dev
 ```
 
 ## Utilizados
