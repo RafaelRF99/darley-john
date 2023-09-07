@@ -1,19 +1,22 @@
 export class MotoModel {
     #marca: string
-    #modelo: string
+    #model: string
+    #color: string
     #km: string
     #documentation: string
     #licensing: string
 
     constructor(
         marca: string,
-        modelo: string,
+        model: string,
+        color: string,
         km: string,
         documentation: string,
         licensing: string,
     ) {
         this.#marca = marca
-        this.#modelo = modelo
+        this.#model = model
+        this.#color = color
         this.#km = km
         this.#documentation = documentation
         this.#licensing = licensing
@@ -23,8 +26,12 @@ export class MotoModel {
         return this.#marca
     }
 
-    get modelo() {
-        return this.#modelo
+    get model() {
+        return this.#model
+    }
+
+    get color() {
+        return this.#color
     }
 
     get km() {

@@ -1,5 +1,9 @@
-import { useForm } from 'react-hook-form'
 import { MotoModel } from '../model/MotoModel'
+
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+
+import { useMoto } from '../data/hooks/useMoto'
 
 export default function Sell() {
     const {
@@ -8,14 +12,20 @@ export default function Sell() {
         resetField,
         formState: { errors },
     } = useForm<MotoModel>()
+    const { addMoto } = useMoto()
+    const navigate = useNavigate()
 
     function handleSave(data: MotoModel) {
-        console.log(data)
+        const { marca, model, color, km, documentation, licensing } = data
+        addMoto(
+            new MotoModel(marca, model, color, km, documentation, licensing),
+        )
         resetField('marca')
-        resetField('modelo')
+        resetField('model')
         resetField('km')
         resetField('documentation')
         resetField('licensing')
+        navigate('/')
     }
 
     return (
@@ -52,9 +62,22 @@ export default function Sell() {
                     <input
                         className="px-3 py-1 mt-1 rounded-md"
                         type="text"
-                        {...register('modelo', { required: true })}
+                        {...register('model', { required: true })}
                     />
-                    {errors.modelo?.type === 'required' ? (
+                    {errors.model?.type === 'required' ? (
+                        <span className="text-red-700">*Campo obrigatório</span>
+                    ) : (
+                        ''
+                    )}
+                </div>
+                <div className="flex flex-col w-60">
+                    <label>Cor</label>
+                    <input
+                        className="px-3 py-1 mt-1 rounded-md"
+                        type="text"
+                        {...register('color', { required: true })}
+                    />
+                    {errors.documentation?.type === 'required' ? (
                         <span className="text-red-700">*Campo obrigatório</span>
                     ) : (
                         ''

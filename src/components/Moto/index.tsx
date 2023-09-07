@@ -1,4 +1,11 @@
-export default function Moto() {
+import { MotoModel } from '../../model/MotoModel'
+
+interface MotoProps {
+    moto: MotoModel
+}
+
+export default function Moto(props: MotoProps) {
+    const moto = props.moto
     return (
         <div className="flex">
             <div
@@ -6,7 +13,7 @@ export default function Moto() {
               bg-white rounded-md shadow-lg"
             >
                 <h1 className="text-4xl text-center mb-2 font-semibold">
-                    XXXXXX
+                    {moto.marca}
                 </h1>
                 <img
                     className="w-80 rounded-md"
@@ -18,10 +25,11 @@ export default function Moto() {
                         <strong>Informações</strong>
                     </p>
                     <div>
-                        <p>Cor: XXXX</p>
-                        <p>Km rodado: XXXXKm</p>
-                        <p>Documentação: XXXX</p>
-                        <p>Licenciamento: XXXX</p>
+                        <p>Cor: {moto.color}</p>
+                        <p>Modelo/Ano: {moto.model}</p>
+                        <p>Km rodado: {moto.km}Km</p>
+                        <p>Documentação: {moto.documentation}</p>
+                        <p>Licenciamento: {moto.licensing}</p>
                     </div>
                 </div>
             </div>
