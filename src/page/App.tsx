@@ -1,16 +1,22 @@
+import { useMoto } from '../data/hooks/useMoto'
+
 import Banner from '../components/Banner'
 import Moto from '../components/Moto'
-import { useMoto } from '../data/hooks/useMoto'
 
 export default function App() {
     const { motos } = useMoto()
 
     return (
-        <main>
+        <main className="min-h-screen h-full">
             <Banner />
-            {motos.map((moto, i) => {
-                return <Moto key={i} moto={moto} />
-            })}
+            <div
+                className="flex flex-wrap justify-center
+            gap-6 p-5"
+            >
+                {motos.map((moto, i) => {
+                    return <Moto key={i} moto={moto} />
+                })}
+            </div>
         </main>
     )
 }
