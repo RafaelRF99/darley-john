@@ -5,6 +5,7 @@ export class MotoModel {
     #km: string
     #documentation: string
     #licensing: string
+    #img: string
 
     constructor(
         marca: string,
@@ -13,6 +14,7 @@ export class MotoModel {
         km: string,
         documentation: string,
         licensing: string,
+        img: string,
     ) {
         this.#marca = marca
         this.#model = model
@@ -20,6 +22,7 @@ export class MotoModel {
         this.#km = km
         this.#documentation = documentation
         this.#licensing = licensing
+        this.#img = img
     }
 
     get marca() {
@@ -44,5 +47,9 @@ export class MotoModel {
 
     get licensing() {
         return this.#licensing
+    }
+
+    get img() {
+        return this.#img
     }
 }

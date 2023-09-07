@@ -15,11 +15,7 @@ export default function Moto(props: MotoProps) {
                 <h1 className="text-4xl text-center mb-2 font-semibold">
                     {moto.marca}
                 </h1>
-                <img
-                    className="w-80 rounded-md"
-                    src="https://www.motorede.com.br/wp-content/uploads/2013/11/HarleyDavidson-Street-500-e-Street-750-01.jpg"
-                    alt="FOTO"
-                />
+                <img className="w-80 rounded-md" src={moto.img} alt="FOTO" />
                 <div className="mt-4">
                     <p className="text-center">
                         <strong>Informações</strong>

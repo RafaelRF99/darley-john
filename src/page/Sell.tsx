@@ -2,10 +2,12 @@ import { MotoModel } from '../model/MotoModel'
 
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 import { useMoto } from '../data/hooks/useMoto'
 
 export default function Sell() {
+    const [selectedImg, setSelectedImg] = useState('')
     const {
         register,
         handleSubmit,
@@ -17,8 +19,17 @@ export default function Sell() {
 
     function handleSave(data: MotoModel) {
         const { marca, model, color, km, documentation, licensing } = data
+
         addMoto(
-            new MotoModel(marca, model, color, km, documentation, licensing),
+            new MotoModel(
+                marca,
+                model,
+                color,
+                km,
+                documentation,
+                licensing,
+                selectedImg,
+            ),
         )
         resetField('marca')
         resetField('model')
@@ -26,6 +37,18 @@ export default function Sell() {
         resetField('documentation')
         resetField('licensing')
         navigate('/')
+    }
+
+    function handleImageUpload(event: React.ChangeEvent<HTMLInputElement>) {
+        const file = event.target.files?.[0]
+
+        if (file) {
+            const reader = new FileReader()
+            reader.onload = (e) => {
+                setSelectedImg(e.target?.result as string)
+            }
+            reader.readAsDataURL(file)
+        }
     }
 
     return (
@@ -120,6 +143,22 @@ export default function Sell() {
                         <span className="text-red-700">*Campo obrigatório</span>
                     ) : (
                         ''
+                    )}
+                </div>
+                <div className="flex flex-col w-60">
+                    <label>Imagem</label>
+                    <input
+                        className="px-3 py-1 mt-1 rounded-md"
+                        type="file"
+                        {...register('img', {
+                            required: 'Imagem é obrigatória',
+                        })}
+                        onChange={handleImageUpload}
+                    />
+                    {errors.img?.message && (
+                        <span className="text-red-700">
+                            {errors.img.message}
+                        </span>
                     )}
                 </div>
                 <button
