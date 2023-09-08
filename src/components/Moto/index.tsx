@@ -15,7 +15,7 @@ export default function Moto(props: MotoProps) {
                 <h1 className="text-4xl text-center mb-2 font-semibold">
                     {moto.marca}
                 </h1>
-                <img className="w-72 rounded-md" src={moto.img} alt="FOTO" />
+                <img className="w-72 h-40 rounded-md" src={moto.img} alt="FOTO" />
                 <div className="mt-4">
                     <p className="text-center">
                         <strong>Informações</strong>
