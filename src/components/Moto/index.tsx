@@ -13,7 +13,7 @@ export default function Moto(props: MotoProps) {
               bg-white rounded-md shadow-lg"
             >
                 <h1 className="text-4xl text-center mb-2 font-semibold">
-                    {moto.marca}
+                    {moto.model}
                 </h1>
                 <img className="w-72 h-40 rounded-md" src={moto.img} alt="FOTO" />
                 <div className="mt-4">
@@ -21,8 +21,8 @@ export default function Moto(props: MotoProps) {
                         <strong>Informações</strong>
                     </p>
                     <div>
+                        <p>Marca: {moto.marca}</p>
                         <p>Cor: {moto.color}</p>
-                        <p>Modelo/Ano: {moto.model}</p>
                         <p>Km rodado: {moto.km}Km</p>
                         <p>Documentação: {moto.documentation}</p>
                         <p>Licenciamento: {moto.licensing}</p>
