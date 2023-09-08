@@ -55,101 +55,103 @@ export default function Sell() {
         <form
             onSubmit={handleSubmit(handleSave)}
             className=" w-full min-h-screen h-full
-         flex justify-center items-center flex-wrap-reverse py-10"
+         flex justify-center gap-20 items-center flex-wrap py-10"
         >
-            <img
-                className="w-96 rotate-90 max-sm:hidden hover:-rotate-90 mix-blend-multiply duration-200"
-                src="./venda.png"
-                alt=""
-            />
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center gap-2">
                 <h1 className="text-2xl mb-3 font-semibold">
                     Venda de moto
                     <hr />
                 </h1>
-                <div className="flex flex-col w-60">
-                    <label>Marca</label>
-                    <input
-                        className="px-3 py-1 mt-1 rounded-md"
-                        type="text"
-                        {...register('marca', { required: true })}
-                    />
-                    {errors.marca?.type === 'required' ? (
-                        <span className="text-red-700">*Campo obrigatório</span>
-                    ) : (
-                        ''
-                    )}
+                <div className='sm:flex gap-4'>
+                    <div className="flex flex-col w-60">
+                        <label>Marca</label>
+                        <input
+                            className="px-3 py-1 mt-1 rounded-md"
+                            type="text"
+                            {...register('marca', { required: true })}
+                        />
+                        {errors.marca?.type === 'required' ? (
+                            <span className="text-red-700">*Campo obrigatório</span>
+                        ) : (
+                            ''
+                        )}
+                    </div>
+                    <div className="flex flex-col w-60">
+                        <label>Modelo/Ano</label>
+                        <input
+                            className="px-3 py-1 mt-1 rounded-md"
+                            type="text"
+                            {...register('model', { required: true })}
+                        />
+                        {errors.model?.type === 'required' ? (
+                            <span className="text-red-700">*Campo obrigatório</span>
+                        ) : (
+                            ''
+                        )}
+                    </div>
                 </div>
-                <div className="flex flex-col w-60">
-                    <label>Modelo/Ano</label>
-                    <input
-                        className="px-3 py-1 mt-1 rounded-md"
-                        type="text"
-                        {...register('model', { required: true })}
-                    />
-                    {errors.model?.type === 'required' ? (
-                        <span className="text-red-700">*Campo obrigatório</span>
-                    ) : (
-                        ''
-                    )}
+                <div className='sm:flex gap-4'>
+                    <div className="flex flex-col w-60">
+                        <label>Cor</label>
+                        <input
+                            className="px-3 py-1 mt-1 rounded-md"
+                            type="text"
+                            {...register('color', { required: true })}
+                        />
+                        {errors.documentation?.type === 'required' ? (
+                            <span className="text-red-700">*Campo obrigatório</span>
+                        ) : (
+                            ''
+                        )}
+                    </div>
+                    <div className="flex flex-col w-60">
+                        <label>Km rodado</label>
+                        <input
+                            className="px-3 py-1 mt-1 rounded-md"
+                            type="number"
+                            {...register('km', { required: true })}
+                        />
+                        {errors.km?.type === 'required' ? (
+                            <span className="text-red-700">*Campo obrigatório</span>
+                        ) : (
+                            ''
+                        )}
+                    </div>
                 </div>
-                <div className="flex flex-col w-60">
-                    <label>Cor</label>
-                    <input
-                        className="px-3 py-1 mt-1 rounded-md"
-                        type="text"
-                        {...register('color', { required: true })}
-                    />
-                    {errors.documentation?.type === 'required' ? (
-                        <span className="text-red-700">*Campo obrigatório</span>
-                    ) : (
-                        ''
-                    )}
+                <div className='sm:flex gap-4'>
+                    <div className="flex flex-col w-60">
+                        <label>Documentação</label>
+                        <input
+                            className="px-3 py-1 mt-1 rounded-md"
+                            type="text"
+                            {...register('documentation', { required: true })}
+                        />
+                        {errors.documentation?.type === 'required' ? (
+                            <span className="text-red-700">*Campo obrigatório</span>
+                        ) : (
+                            ''
+                        )}
+                    </div>
+                    <div className="flex flex-col w-60">
+                        <label>Licenciamento</label>
+                        <input
+                            className="px-3 py-1 mt-1 rounded-md"
+                            type="text"
+                            {...register('licensing', { required: true })}
+                        />
+                        {errors.licensing?.type === 'required' ? (
+                            <span className="text-red-700">*Campo obrigatório</span>
+                        ) : (
+                            ''
+                        )}
+                    </div>
                 </div>
-                <div className="flex flex-col w-60">
-                    <label>Km rodado</label>
-                    <input
-                        className="px-3 py-1 mt-1 rounded-md"
-                        type="number"
-                        {...register('km', { required: true })}
-                    />
-                    {errors.km?.type === 'required' ? (
-                        <span className="text-red-700">*Campo obrigatório</span>
-                    ) : (
-                        ''
-                    )}
-                </div>
-                <div className="flex flex-col w-60">
-                    <label>Documentação</label>
-                    <input
-                        className="px-3 py-1 mt-1 rounded-md"
-                        type="text"
-                        {...register('documentation', { required: true })}
-                    />
-                    {errors.documentation?.type === 'required' ? (
-                        <span className="text-red-700">*Campo obrigatório</span>
-                    ) : (
-                        ''
-                    )}
-                </div>
-                <div className="flex flex-col w-60">
-                    <label>Licenciamento</label>
-                    <input
-                        className="px-3 py-1 mt-1 rounded-md"
-                        type="text"
-                        {...register('licensing', { required: true })}
-                    />
-                    {errors.licensing?.type === 'required' ? (
-                        <span className="text-red-700">*Campo obrigatório</span>
-                    ) : (
-                        ''
-                    )}
-                </div>
-                <div className="flex flex-col w-60">
+                <div className="flex flex-col sm:w-full w-60">
                     <label>Imagem</label>
                     <input
                         className="px-3 py-1 mt-1 rounded-md"
                         type="file"
+                        placeholder=''
                         {...register('img', {
                             required: 'Imagem é obrigatória',
                         })}
@@ -161,7 +163,7 @@ export default function Sell() {
                         </span>
                     )}
                 </div>
-                <div className="flex w-full justify-between">
+                <div className="flex w-full sm:justify-end sm:gap-8 justify-between">
                     <Link to="/">
                         <button
                             type="button"
@@ -178,6 +180,12 @@ export default function Sell() {
                     </button>
                 </div>
             </div>
+            <img
+                className="max-w-xs md:rotate-90 rotate-0 max-lg:hidden hover:-rotate-0
+                 mix-blend-multiply duration-700 hover:scale-125"
+                src="./venda.png"
+                alt=""
+            />
         </form>
     )
 }
