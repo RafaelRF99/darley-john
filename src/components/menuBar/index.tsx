@@ -9,15 +9,15 @@ export default function MenuBar() {
                 </li>
                 <p className="select-none">|</p>
                 <li className="cursor-pointer text-white hover:text-yellow-200/80">
-                    Mais vendidas
-                </li>
-                <p className="select-none">|</p>
-                <li className="cursor-pointer text-white hover:text-yellow-200/80">
                     <Link to="/vender">Vender</Link>
                 </li>
                 <p className="select-none">|</p>
                 <li className="cursor-pointer text-white hover:text-yellow-200/80">
                     <Link to="/suporte">Suporte</Link>
+                </li>
+                <p className="select-none">|</p>
+                <li className="cursor-pointer text-white hover:text-yellow-200/80">
+                    <Link to="/sobre">Sobre</Link>
                 </li>
             </ul>
         </menu>
