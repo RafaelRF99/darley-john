@@ -52,8 +52,6 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
             })
     }
 
-    console.log(loading)
-
     async function cadastrar(email: string, password: string) {
         try {
             const auth = getAuth()
