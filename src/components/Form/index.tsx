@@ -3,6 +3,8 @@ import { useAuth } from '../../data/hooks/useAuth'
 import { useState } from 'react'
 import { useAlert } from '../../data/hooks/useAlert'
 
+import { LoadingOutlined } from '@ant-design/icons'
+import { Spin } from 'antd'
 import GoogleIcon from '@mui/icons-material/Google'
 
 import Pix from '../Pix'
@@ -20,7 +22,9 @@ interface userAuth {
 export default function Form(props: FormProps) {
     const { handleAlert } = useAlert()
     const { register, handleSubmit, resetField } = useForm<userAuth>()
-    const { handleGoogleSignIn, login, cadastrar, user } = useAuth()
+    const { handleGoogleSignIn, login, cadastrar, user, loading } = useAuth()
+
+    const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
 
     const [handleUser, setHandleUser] = useState(true)
 
@@ -65,9 +69,15 @@ export default function Form(props: FormProps) {
                         </div>
                         {handleUser ? (
                             <>
-                                <button className="w-full bg-slate-200 hover:bg-slate-300 py-1 mt-3">
-                                    Logar
-                                </button>
+                                {loading ? (
+                                    <button className="w-full bg-slate-200 hover:bg-slate-300 py-1 mt-3">
+                                        <Spin indicator={antIcon} />
+                                    </button>
+                                ) : (
+                                    <button className="w-full bg-slate-200 hover:bg-slate-300 py-1 mt-3">
+                                        Logar
+                                    </button>
+                                )}
                                 <button
                                     onClick={handleGoogleSignIn}
                                     className="w-full flex justify-center items-center gap-1

@@ -19,3 +19,5 @@ npm run dev
 -   Prettier
 -   React Hook Form
 -   Material UI
+-   FireBase
+-   AntDesign

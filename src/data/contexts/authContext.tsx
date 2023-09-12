@@ -16,12 +16,14 @@ interface authContextProps {
     cadastrar?: (email: string, password: string) => Promise<void>
     handleGoogleSignIn: () => void
     user: User
+    loading: boolean
 }
 
 export const AuthContext = createContext<authContextProps>(null!)
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
     const [user, setUser] = useState<User>({} as User)
+    const [loading, setLoading] = useState(false)
 
     function handleGoogleSignIn() {
         const provider = new GoogleAuthProvider()
@@ -37,6 +39,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     function login(email: string, password: string) {
+        setLoading(true)
         signInWithEmailAndPassword(auth, email, password)
             .then((res) => {
                 setUser(res.user)
@@ -44,7 +47,12 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
             .catch((error) => {
                 console.log(error)
             })
+            .finally(() => {
+                setLoading(false)
+            })
     }
+
+    console.log(loading)
 
     async function cadastrar(email: string, password: string) {
         try {
@@ -57,7 +65,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
 
     return (
         <AuthContext.Provider
-            value={{ handleGoogleSignIn, user, cadastrar, login }}
+            value={{ handleGoogleSignIn, user, cadastrar, login, loading }}
         >
             {children}
         </AuthContext.Provider>
