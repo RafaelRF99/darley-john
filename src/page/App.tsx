@@ -6,6 +6,7 @@ import Banner from '../components/Banner'
 import Moto from '../components/Moto'
 import BuyModal from '../components/BuyModal'
 import { MotoModel } from '../model/MotoModel'
+import Alerts from '../components/Alerts'
 
 export default function App() {
     const { motos } = useMoto()
@@ -41,6 +42,7 @@ export default function App() {
                 status={open}
                 handleClose={handleClose}
             />
+            <Alerts msg="Moto colocada a venda!" severity="success" />
         </main>
     )
 }

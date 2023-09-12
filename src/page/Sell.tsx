@@ -2,11 +2,15 @@ import { MotoModel } from '../model/MotoModel'
 
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
 
+import { useState } from 'react'
 import { useMoto } from '../data/hooks/useMoto'
+import { useAlert } from '../data/hooks/useAlert'
 
 export default function Sell() {
+    const { addMoto } = useMoto()
+    const { handleAlert } = useAlert()
+
     const [selectedImg, setSelectedImg] = useState('')
     const {
         register,
@@ -14,7 +18,6 @@ export default function Sell() {
         resetField,
         formState: { errors },
     } = useForm<MotoModel>()
-    const { addMoto } = useMoto()
     const navigate = useNavigate()
 
     function handleSave(data: MotoModel) {
@@ -31,8 +34,10 @@ export default function Sell() {
                 selectedImg,
             ),
         )
+        handleAlert(true)
         resetField('marca')
         resetField('model')
+        resetField('color')
         resetField('km')
         resetField('documentation')
         resetField('licensing')
@@ -62,7 +67,7 @@ export default function Sell() {
                     Venda de moto
                     <hr />
                 </h1>
-                <div className='sm:flex gap-4'>
+                <div className="sm:flex gap-4">
                     <div className="flex flex-col w-60">
                         <label>Marca</label>
                         <input
@@ -71,7 +76,9 @@ export default function Sell() {
                             {...register('marca', { required: true })}
                         />
                         {errors.marca?.type === 'required' ? (
-                            <span className="text-red-700">*Campo obrigatório</span>
+                            <span className="text-red-700">
+                                *Campo obrigatório
+                            </span>
                         ) : (
                             ''
                         )}
@@ -84,13 +91,15 @@ export default function Sell() {
                             {...register('model', { required: true })}
                         />
                         {errors.model?.type === 'required' ? (
-                            <span className="text-red-700">*Campo obrigatório</span>
+                            <span className="text-red-700">
+                                *Campo obrigatório
+                            </span>
                         ) : (
                             ''
                         )}
                     </div>
                 </div>
-                <div className='sm:flex gap-4'>
+                <div className="sm:flex gap-4">
                     <div className="flex flex-col w-60">
                         <label>Cor</label>
                         <input
@@ -99,7 +108,9 @@ export default function Sell() {
                             {...register('color', { required: true })}
                         />
                         {errors.documentation?.type === 'required' ? (
-                            <span className="text-red-700">*Campo obrigatório</span>
+                            <span className="text-red-700">
+                                *Campo obrigatório
+                            </span>
                         ) : (
                             ''
                         )}
@@ -112,13 +123,15 @@ export default function Sell() {
                             {...register('km', { required: true })}
                         />
                         {errors.km?.type === 'required' ? (
-                            <span className="text-red-700">*Campo obrigatório</span>
+                            <span className="text-red-700">
+                                *Campo obrigatório
+                            </span>
                         ) : (
                             ''
                         )}
                     </div>
                 </div>
-                <div className='sm:flex gap-4'>
+                <div className="sm:flex gap-4">
                     <div className="flex flex-col w-60">
                         <label>Documentação</label>
                         <input
@@ -127,7 +140,9 @@ export default function Sell() {
                             {...register('documentation', { required: true })}
                         />
                         {errors.documentation?.type === 'required' ? (
-                            <span className="text-red-700">*Campo obrigatório</span>
+                            <span className="text-red-700">
+                                *Campo obrigatório
+                            </span>
                         ) : (
                             ''
                         )}
@@ -140,7 +155,9 @@ export default function Sell() {
                             {...register('licensing', { required: true })}
                         />
                         {errors.licensing?.type === 'required' ? (
-                            <span className="text-red-700">*Campo obrigatório</span>
+                            <span className="text-red-700">
+                                *Campo obrigatório
+                            </span>
                         ) : (
                             ''
                         )}
@@ -151,7 +168,7 @@ export default function Sell() {
                     <input
                         className="px-3 py-1 mt-1 rounded-md"
                         type="file"
-                        placeholder=''
+                        placeholder=""
                         {...register('img', {
                             required: 'Imagem é obrigatória',
                         })}
