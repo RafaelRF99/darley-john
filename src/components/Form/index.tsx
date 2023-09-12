@@ -1,10 +1,15 @@
 import { useForm } from 'react-hook-form'
 import { useAuth } from '../../data/hooks/useAuth'
 import { useState } from 'react'
+import { useAlert } from '../../data/hooks/useAlert'
 
 import GoogleIcon from '@mui/icons-material/Google'
 
+import Pix from '../Pix'
+import Alerts from '../Alerts'
+
 export default function Form() {
+    const { handleAlert } = useAlert()
     const { register, handleSubmit, resetField } = useForm()
     const { handleGoogleSignIn, login, cadastrar, user } = useAuth()
 
@@ -16,6 +21,8 @@ export default function Form() {
             login?.(email, password)
         } else {
             cadastrar?.(email, password)
+            setHandleUser(true)
+            handleAlert(true)
         }
         resetField('email')
         resetField('password')
@@ -82,14 +89,9 @@ export default function Form() {
                     </form>
                 </>
             ) : (
-                <div className="text-center">
-                    <h2 className="bg-yellow-400 text-white py-1">
-                        Você está logado!
-                    </h2>
-                    <br />
-                    <p>Volte e continue!</p>
-                </div>
+                <Pix />
             )}
+            <Alerts msg="Conta cadastrada!" severity="success" />
         </>
     )
 }
