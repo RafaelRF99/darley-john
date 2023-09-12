@@ -1,9 +1,19 @@
 import { createContext, useState, ReactNode } from 'react'
 
-import { GoogleAuthProvider, signInWithPopup, User } from 'firebase/auth'
+import {
+    createUserWithEmailAndPassword,
+    getAuth,
+    GoogleAuthProvider,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    User,
+} from 'firebase/auth'
+
 import { auth } from '../../services/firebase'
 
 interface authContextProps {
+    login: (email: string, password: string) => void
+    cadastrar?: (email: string, password: string) => Promise<void>
     handleGoogleSignIn: () => void
     user: User
 }
@@ -19,14 +29,36 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         signInWithPopup(auth, provider)
             .then((result) => {
                 setUser(result.user)
+                console.log('Sucesso!')
             })
             .catch((err) => {
                 console.log(err)
             })
     }
 
+    function login(email: string, password: string) {
+        signInWithEmailAndPassword(auth, email, password)
+            .then((res) => {
+                setUser(res.user)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+    async function cadastrar(email: string, password: string) {
+        try {
+            const auth = getAuth()
+            createUserWithEmailAndPassword(auth, email, password)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     return (
-        <AuthContext.Provider value={{ handleGoogleSignIn, user }}>
+        <AuthContext.Provider
+            value={{ handleGoogleSignIn, user, cadastrar, login }}
+        >
             {children}
         </AuthContext.Provider>
     )

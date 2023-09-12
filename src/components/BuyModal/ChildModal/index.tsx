@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal'
+import Form from '../../Form'
 
 const style = {
     position: 'absolute' as const,
@@ -36,21 +37,9 @@ export default function ChildModal() {
             >
                 Comprar
             </button>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="child-modal-title"
-                aria-describedby="child-modal-description"
-            >
-                <Box sx={{ ...style, width: 200 }}>
-                    <p>Desenvolvimento...</p>
-                    <p>Tela para login</p>
-                    <button
-                        className="w-full bg-red-200 hover:bg-red-300 py-1 mt-3"
-                        onClick={handleClose}
-                    >
-                        Fechar
-                    </button>
+            <Modal open={open} onClose={handleClose}>
+                <Box sx={{ ...style }}>
+                    <Form />
                 </Box>
             </Modal>
         </>
