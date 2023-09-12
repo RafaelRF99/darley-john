@@ -20,7 +20,7 @@ export default function Alerts({ severity, msg }: AlertsProps) {
     return (
         <>
             {alert ? (
-                <div className="absolute bottom-10 right-10">
+                <div className="fixed bottom-10 right-10">
                     <Alert variant="filled" severity={severity}>
                         {msg}
                     </Alert>
