@@ -31,7 +31,11 @@ export default function App() {
             >
                 {motos.map((moto, i) => {
                     return (
-                        <div key={i} onClick={() => handleOpen(moto)}>
+                        <div
+                            className="hover:scale-105"
+                            key={i}
+                            onClick={() => handleOpen(moto)}
+                        >
                             <Moto moto={moto} />
                         </div>
                     )
