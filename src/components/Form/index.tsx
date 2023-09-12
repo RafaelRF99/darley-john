@@ -8,14 +8,23 @@ import GoogleIcon from '@mui/icons-material/Google'
 import Pix from '../Pix'
 import Alerts from '../Alerts'
 
-export default function Form() {
+interface FormProps {
+    close: () => void
+}
+
+interface userAuth {
+    email: string
+    password: string
+}
+
+export default function Form(props: FormProps) {
     const { handleAlert } = useAlert()
-    const { register, handleSubmit, resetField } = useForm()
+    const { register, handleSubmit, resetField } = useForm<userAuth>()
     const { handleGoogleSignIn, login, cadastrar, user } = useAuth()
 
     const [handleUser, setHandleUser] = useState(true)
 
-    function handleSave(data: any) {
+    function handleSave(data: userAuth) {
         const { email, password } = data
         if (handleUser) {
             login?.(email, password)
@@ -92,6 +101,12 @@ export default function Form() {
                 <Pix />
             )}
             <Alerts msg="Conta cadastrada!" severity="success" />
+            <button
+                className="w-full bg-red-200 hover:bg-red-300 py-1 mt-3"
+                onClick={props.close}
+            >
+                Voltar
+            </button>
         </>
     )
 }

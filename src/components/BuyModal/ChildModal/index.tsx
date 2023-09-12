@@ -39,7 +39,7 @@ export default function ChildModal() {
             </button>
             <Modal open={open} onClose={handleClose}>
                 <Box sx={{ ...style }}>
-                    <Form />
+                    <Form close={handleClose} />
                 </Box>
             </Modal>
         </>
