@@ -114,10 +114,13 @@ export default function Form(props: FormProps) {
             )}
             <Alerts msg="Conta cadastrada!" severity="success" />
             <button
-                className="w-full bg-red-200 hover:bg-red-300 py-1 mt-3"
+                className="absolute top-0 max-sm:right-7 right-3
+                w-7 h-7 flex justify-center items-center
+                bg-red-400 hover:bg-red-500 text-white 
+                rounded-sm py-1 mt-3"
                 onClick={props.close}
             >
-                Voltar
+                X
             </button>
         </>
     )
