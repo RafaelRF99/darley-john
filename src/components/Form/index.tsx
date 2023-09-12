@@ -49,6 +49,7 @@ export default function Form(props: FormProps) {
                                 className="px-2 py-1"
                                 placeholder="darley@gmail.com"
                                 type="email"
+                                autoComplete="username"
                                 {...register('email')}
                             />
                         </div>
@@ -58,6 +59,7 @@ export default function Form(props: FormProps) {
                                 className="px-2 py-1"
                                 placeholder="teste@#123"
                                 type="password"
+                                autoComplete="current-password"
                                 {...register('password')}
                             />
                         </div>
