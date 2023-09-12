@@ -7,7 +7,7 @@ interface MotoProps {
 export default function Moto(props: MotoProps) {
     const moto = props.moto
     return (
-        <div className="flex">
+        <div className="flex cursor-pointer">
             <div
                 className="flex flex-col p-5 
               bg-white rounded-md shadow-lg"
@@ -24,8 +24,6 @@ export default function Moto(props: MotoProps) {
                         <p>Marca: {moto.marca}</p>
                         <p>Cor: {moto.color}</p>
                         <p>Km rodado: {moto.km}Km</p>
-                        <p>Documentação: {moto.documentation}</p>
-                        <p>Licenciamento: {moto.licensing}</p>
                     </div>
                 </div>
             </div>

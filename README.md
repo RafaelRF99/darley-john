@@ -1,10 +1,13 @@
 # Darley John
 
 ## Instalar dependencias
+
 ```bash
 npm i
 ```
+
 Iniciar projeto
+
 ```bash
 npm run dev
 ```
@@ -15,3 +18,4 @@ npm run dev
 -   Tailwind CSS
 -   Prettier
 -   React Hook Form
+-   Material UI
