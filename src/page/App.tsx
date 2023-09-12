@@ -10,16 +10,16 @@ import { MotoModel } from '../model/MotoModel'
 export default function App() {
     const { motos } = useMoto()
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false)
     const [handleMoto, setHandleMoto] = useState<MotoModel | null>(null)
 
     const handleOpen = (moto: MotoModel) => {
-        setOpen(true);
+        setOpen(true)
         setHandleMoto(moto)
-    };
+    }
     const handleClose = () => {
-        setOpen(false);
-    };
+        setOpen(false)
+    }
 
     return (
         <main className="min-h-screen h-full">
@@ -36,7 +36,11 @@ export default function App() {
                     )
                 })}
             </div>
-            <BuyModal moto={handleMoto} status={open} handleClose={handleClose} />
+            <BuyModal
+                moto={handleMoto}
+                status={open}
+                handleClose={handleClose}
+            />
         </main>
     )
 }
